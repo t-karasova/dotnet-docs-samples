@@ -202,29 +202,29 @@ values for each faceting field.
 
 Let's modify the ```SearchRequest``` to get price facet with two price intervals: $(0 - 20.0] and $(21.0 - 50]
 
-Define the Interval in the **```getSearchRequest()```**, add the following code:
+Define the Interval in the **```GetSearchRequest()```**, add the following code:
 ```
-    Interval interval1 = Interval.newBuilder()
-        .setMinimum(0.0)
-        .setMaximum(25.0)
-        .build();
+        List<Interval> intervals = new List<Interval>();
 
-    Interval interval2 = Interval.newBuilder()
-        .setMinimum(26.0)
-        .setMaximum(50.0)
-        .build();
+        var interval1 = new Interval
+        {
+            Minimum = 0.0,
+            Maximum = 25.0
+        };
+
+        var interval2 = new Interval
+        {
+            Minimum = 26.0,
+            Maximum = 50.0
+        };
+
+        intervals.Add(interval1);
+        intervals.Add(interval2);
+
+        facetKey.Intervals.AddRange(intervals);
 ```
 
-Add all **```intervals```** field to the ```facetKey```:
-
-```
-    FacetKey facetKey = FacetKey.newBuilder()
-        .setKey(facetKeyParam)
-        .addAllIntervals(Arrays.asList(interval1, interval2))
-        .build();
-```
-
-Next, change the ```facet_key``` value in the ```search()``` function:
+Next, change the ```facet_key``` value in the ```Search()``` function:
 ```
 facetKey = "price"
 ```
