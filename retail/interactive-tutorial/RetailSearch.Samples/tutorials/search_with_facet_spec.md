@@ -64,11 +64,11 @@ Because you are going to run the code samples in your own Google Cloud project, 
     ```bash
     export PROJECT_NUMBER=<YOUR_PROJECT_NUMBER>
     ```
-
+	
 ### Google Cloud Retail libraries
 
-You can find the Java Google Retail library is described
-[here](https://googleapis.dev/java/google-cloud-retail/latest/index.html)
+You can find the .NET Google Retail library is described
+[here](https://googleapis.dev/dotnet/Google.Cloud.Retail.V2/1.0.0-beta01/index.html)
 
 ## Clone the Retail code samples
 
@@ -77,17 +77,16 @@ Otherwise, you can skip it.
 
 Clone the Git repository with all the code samples to learn the Retail features and check them in action.
 
-<!-- TODO(ianan): change the repository link -->
 1. Run the following command in the Terminal:
     ```bash
-    git clone https://github.com/t-karasova/java-retail.git
+    git clone https://github.com/GoogleCloudPlatform/dotnet-docs-samples.git
     ```
 
 The code samples for each of the Retail services are stored in different directories.
 
-2. Go to the `interactive-tutorials` directory. It's our starting point to run more commands.
+2. Go to the `interactive-tutorial` directory. It's our starting point to run more commands.
     ```bash
-    cd java-retail/samples/interactive-tutorials
+    cd retail/interactive-tutorial/RetailSearch.Samples
     ```
 
 ## Getting textual facets, facet_key = "colorFamilies"
@@ -100,7 +99,7 @@ the search request body, explicitly passing product attributes as facets.
    textual o numerical field name. The full list of the facet keys you can find
    in the [Retail documentation.](https://cloud.google.com/retail/docs/reference/rpc/google.cloud.retail.v2#facetkey)
 
-2. Now open <walkthrough-editor-select-regex filePath="cloudshell_open/interactive-tutorials/src/main/java/search/SearchWithFacetSpec.java" regex="boost.*0">SearchWithFacetSpec.java</walkthrough-editor-select-regex>.
+2. Now open <walkthrough-editor-select-regex filePath="cloudshell_open/interactive-tutorial/RetailSearch.Samples/SearchWithFacetSpec.cs" regex="boost.*0">SearchWithFacetSpec.cs</walkthrough-editor-select-regex>.
 
    In the initial request, the textual facet "colorFamilies" is going to be returned.
 
@@ -121,7 +120,7 @@ the search request body, explicitly passing product attributes as facets.
 
 1. Run the sample in a terminal with the following command:
     ```bash
-    mvn compile exec:java -Dexec.mainClass="search.SearchWithFacetSpec"
+    dotnet run -- SearchWithFacetSpec
     ```
 2. Check the response contains the object **```facets```**:
 
@@ -233,7 +232,7 @@ facetKey = "price"
 
 1. Run the sample in a terminal with the following command:
 ```bash
-mvn compile exec:java -Dexec.mainClass="search.SearchWithFacetSpec"
+dotnet run -- SearchWithFacetSpec
 ```
    
 2. Check the response contains the object **```facets```**:
